@@ -1,6 +1,5 @@
-package com.demo.webflux_20230127.router;
+package com.demo.webflux_20230127.config;
 
-import com.demo.webflux_20230127.config.GreetingHandler;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
@@ -17,7 +16,7 @@ public class GreetingRouter {
 
     @Bean
     public RouterFunction<ServerResponse> route(GreetingHandler greetingHandler) {
-
+        // 체이닝 메소드와 람다를 이해 하셔야 합니다.
         return RouterFunctions
                 .route(GET("/hello").and(accept(MediaType.APPLICATION_JSON)), greetingHandler::hello);
     }
